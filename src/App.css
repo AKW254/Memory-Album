@@ -10,11 +10,36 @@ body {
 .light-theme {
   background-color: #ffffff;
   color: #000000;
-  
 }
 
 /* Dark Theme */
 .dark-theme {
   background-color: #121212;
   color: #ffffff;
+}
+
+/*Gallery */
+.card-img-top {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.card:hover .card-body {
+  display: block;
+}
+
+.card-body {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  text-align: center;
+  overflow-y: auto; /* Enable vertical scrolling for the gallery container */
+}
+.modal-content img {
+  width: 100%;
+  object-fit: contain; /* Ensures the modal images scale to fit within the modal without cropping */
 }
