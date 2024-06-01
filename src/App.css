@@ -10,7 +10,6 @@ body {
 .light-theme {
   background-color: #ffffff;
   color: #000000;
-  
 }
 
 /* Dark Theme */
@@ -22,7 +21,8 @@ body {
 /*Gallery */
 .card-img-top {
   width: 100%;
-  object-fit: cover; /* Ensures images are scaled to cover the entire area without stretching */
+  height: 50vh;
+  object-fit: cover;
 }
 
 .card:hover .card-body {
@@ -37,7 +37,7 @@ body {
   color: white;
   width: 100%;
   text-align: center;
-   overflow-y: auto; /* Enable vertical scrolling for the gallery container */
+  overflow-y: auto; /* Enable vertical scrolling for the gallery container */
 }
 .modal-content img {
   width: 100%;
