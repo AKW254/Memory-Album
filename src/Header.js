@@ -2,18 +2,24 @@ import React ,{ useState, useEffect } from 'react';
 import Logo from './camera.svg';
 import "./index.css";
 function Header() {
-const [theme, setTheme] = useState(() => {
-    // Get theme from local storage or default to 'light'
-    return localStorage.getItem('theme') || 'light-theme';
-  });
+  // Function to get the initial theme
+  const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    } else {
+      return 'light';
+    }
+  };
 
+  const [theme, setTheme] = useState(getInitialTheme);
+  
   useEffect(() => {
     // Apply the theme to the body
     document.body.className = theme;
     // Save the theme to local storage
     localStorage.setItem('theme', theme);
   }, [theme]);
-
 
   const handleThemeChange = (themeValue) => {
     setTheme(themeValue);
