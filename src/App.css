@@ -18,3 +18,28 @@ body {
   background-color: #121212;
   color: #ffffff;
 }
+
+/*Gallery */
+.card-img-top {
+  width: 100%;
+  height: 300px; /* Adjust this value as needed */
+  object-fit: cover; /* Ensures images are scaled to cover the entire area without stretching */
+}
+
+.card:hover .card-body {
+  display: block;
+}
+
+.card-body {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+.modal-content img {
+  width: 100%;
+  object-fit: contain; /* Ensures the modal images scale to fit within the modal without cropping */
+}
