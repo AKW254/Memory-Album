@@ -16,8 +16,8 @@ function Modal({ image, onClose, onPrevious, onNext }) {
             <p className="mt-2">{image.description}</p>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={onPrevious}>Previous</button>
-            <button type="button" className="btn btn-secondary" onClick={onNext}>Next</button>
+            <div className="btn btn-primary bi bi-arrow-left-circle-fill" onClick={onPrevious}>Previous</div>
+            <div className="btn btn-primary bi bi-arrow-right-circle-fill" onClick={onNext}>Next</div>
           </div>
         </div>
       </div>
