@@ -1,6 +1,5 @@
 import React ,{ useState, useEffect } from 'react';
 import './App.css';
-import  './scriptmodal';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from './Header';
 import Gallery from './Gallery';
@@ -34,8 +33,15 @@ function App() {
     const nextIndex = (currentIndex + 1) % images.length;
     setSelectedImage(images[nextIndex]);
   };
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [selectedImage]);
   return (
-    <div className="container-fluid">
+    <>
        <Header />
       <Gallery images={images} onImageClick={handleImageClick} />
       {selectedImage && (
@@ -46,7 +52,9 @@ function App() {
           onNext={handleNext}
         />
       )}
-    </div>
+   
+    </>
+      
    
     
   );
