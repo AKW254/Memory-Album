@@ -1,8 +1,10 @@
 import React ,{ useState, useEffect } from 'react';
 import './App.css';
+import  './scriptmodal';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from './Header';
 import Gallery from './Gallery';
+import Modal from './Modal';
 function App() {
       const images = [
   { id: 1, src:  'images/houcine-ncib-B4TjXnI0Y2c-unsplash.jpg', title: 'Image 1', description: 'Description of Image 1' },
@@ -35,7 +37,15 @@ function App() {
   return (
     <div className="container-fluid">
        <Header />
-    <Gallery images={images} onImageClick={handleImageClick} />
+      <Gallery images={images} onImageClick={handleImageClick} />
+      {selectedImage && (
+        <Modal
+          image={selectedImage}
+          onClose={handleClose}
+          onPrevious={handlePrevious}
+          onNext={handleNext}
+        />
+      )}
     </div>
    
     
