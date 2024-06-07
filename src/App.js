@@ -19,7 +19,7 @@ function App() {
 
       try {
         const response = await fetch(
-          `https://api.unsplash.com/photos/?client_id=SFsn_UvdiYVvL7yCpoicOufEqc625-x2m8oYAPRx1Wo`
+          `https://api.unsplash.com/photos/?client_id=#`
         );
 
         if (!response.ok) {
