@@ -1,8 +1,10 @@
 import React from 'react'
 
-function Gallery({ images, onImageClick }) {
+function Gallery({ images, onImageClick, isLoading, error }) {
+   if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   return (
-     <div className="row row-cols-1 row-cols-md-3 g-4">
+     <div className="row row-cols-1 row-cols-md-3 g-4 mr-2 me-2 p-3">
       {images.map((image) => (
         <div className="col" key={image.id}>
           <div className="card h-100" onClick={() => onImageClick(image)}>
