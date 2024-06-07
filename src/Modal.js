@@ -12,7 +12,7 @@ function Modal({ image, onClose, onPrevious, onNext }) {
             <button type="button" className="btn-close" aria-label="Close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
-            <img  src={image.src} alt={image.title} />
+                <img src={image.src} style={{ width: "100vw", height: "60vh" }}  alt={image.title} />
             <p className="mt-2">{image.description}</p>
           </div>
           <div className="modal-footer">
