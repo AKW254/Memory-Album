@@ -28,6 +28,6 @@ The Album App is designed to provide a seamless and modern experience for users 
 
 The Album App is a view-only application, allowing users to effortlessly browse through their photo collections. No installation is required. Simply access the app through the provided link below and start exploring your albums!
 
-![Screenshot of The Album App](album_app_screenshot.png)
+![Screenshot of The Album App](public/images/album_app_screenshot.png)
 
 [Access The Album App](#)
