@@ -25,11 +25,11 @@ body {
   object-fit: cover;
 }
 
-.card:hover .card-body {
+.card:hover .card-body-custom {
   display: block;
 }
 
-.card-body {
+.card-body-custom {
   display: none;
   position: absolute;
   bottom: 0;

@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from './Header';
 import Gallery from './Gallery';
-import Modal from './Modal';
+import Galleryview from './Galleryview';
 
 
 function App() {
   const [images, setImages] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null);
+ const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
    // Fetch Images
   useEffect(() => {
     const fetchImages = async () => {
@@ -19,7 +21,7 @@ function App() {
 
       try {
         const response = await fetch(
-          `https://api.unsplash.com/photos/?client_id=#`
+          `https://api.unsplash.com/photos/?client_id=SFsn_UvdiYVvL7yCpoicOufEqc625-x2m8oYAPRx1Wo`
         );
 
         if (!response.ok) {
@@ -43,50 +45,19 @@ function App() {
     fetchImages();
   }, []);
   
-  const handleImageClick = (image) => {
-    setSelectedImage(image)
-  }
+  const handleImageClick = (event, { photo }) => {
+    navigate(`/image/${photo.id}`);
+  };
 
-  const handleClose = () => {
-    setSelectedImage(null)
-  }
 
-  const handlePrevious = () => {
-    const currentIndex = images.findIndex((img) => img.id === selectedImage.id)
-    const previousIndex = (currentIndex - 1 + images.length) % images.length
-    setSelectedImage(images[previousIndex])
-  }
-
-  const handleNext = () => {
-    const currentIndex = images.findIndex((img) => img.id === selectedImage.id)
-    const nextIndex = (currentIndex + 1) % images.length
-    setSelectedImage(images[nextIndex])
-  }
-  //Select image hook
-  useEffect(() => {
-    if (selectedImage) {
-      document.body.classList.add('modal-open')
-    } else {
-      document.body.classList.remove('modal-open')
-    }
-  }, [selectedImage])
   return (
     <>
       <Header />
-      <Gallery
-        images={images}
-        onImageClick={handleImageClick}
-        isLoading={isLoading}
-        error={error}
-      />
-      {selectedImage && (
-        <Modal
-          image={selectedImage}
-          onClose={handleClose}
-          onPrevious={handlePrevious}
-          onNext={handleNext}
-        />
-      )}
+      <Routes>
+  <Route path="/" element={<Gallery images={images} onImageClick={handleImageClick} isLoading={isLoading} error={error} />} />
+  <Route path="/image/:imageId" element={<Galleryview images={images} />} />
+     </Routes>
+     
     </>
   )
 }
