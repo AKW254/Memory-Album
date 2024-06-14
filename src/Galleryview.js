@@ -11,17 +11,22 @@ function Galleryview({ images }) {
   }
 
   return (
-    <div className="card bg-white mb-3 p-4 mx-4">
-      <img
-        src={selectedImage.src}
-        className="card-img-top"
-        alt={selectedImage.title}
-      />
-      <div className="card-body text-white bg-dark">
-        <h5 className="card-title ">{selectedImage.title}</h5>
-        <p className="card-text text-black">{selectedImage.description}</p>
-      </div>
+ <div class="container h-100">
+  <div class="card mb-1 p-2 mx-0 rounded shadow">
+    <img
+      src={selectedImage.src}
+      class="card-img-top rounded mx-auto d-block"
+      alt={selectedImage.title}
+    />
+    <div class="card-body text-white bg-dark">
+      <h5 class="card-title text-center">{selectedImage.title}</h5>
+      <p class="card-text text-black">{selectedImage.description}</p>
     </div>
+  </div>
+</div>
+
+
+    
   )
 }
 
