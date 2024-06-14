@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Gallery({ images, handleImageClick, isLoading, error }) {
+function Gallery({ images, isLoading, error }) {
   const navigate = useNavigate(); // Create a useNavigate instance
    if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -12,9 +12,8 @@ function Gallery({ images, handleImageClick, isLoading, error }) {
           <div className="card h-100"
            onClick={() => {
               // Use useNavigate to navigate to the image view route
-              navigate(`/image/${image.id}`);
-              // Optionally, call handleImageClick if needed for additional logic
-              handleImageClick && handleImageClick(image.id);
+              navigate(`/Gallery View/${image.id}`);
+              
             }}
           >
             <img src={image.src} className="card-img-top" alt={image.title} />
